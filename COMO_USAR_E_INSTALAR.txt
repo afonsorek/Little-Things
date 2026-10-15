@@ -1,0 +1,52 @@
+================================================================================
+              LITTLE THINGS - LAUNCHPAD CHOP ENGINE & ARA PLUGIN
+================================================================================
+
+Conteúdo deste pacote de distribuição:
+
+1. Plugins/
+   - VST3/Little Things.vst3         -> Plugin VST3 com ARA 2 para macOS
+   - AU/Little Things.component       -> Plugin Audio Unit (Logic Pro / DAWs)
+   - Standalone/Little Things.app     -> Aplicativo independente (sem DAW)
+
+2. REAPER Script/
+   - Little Things - Launchpad Chop Engine.lua -> Script nativo para REAPER (ReaImGui)
+   - LittleThings_MIDI_Bridge.jsfx             -> Bridge MIDI JSFX
+   - Presets/                                  -> Presets de kits
+   - install_reaper.sh                         -> Instalador automático para o REAPER
+
+3. Instalar_Plugins_Mac.command
+   - Basta dar DOIS CLIQUES neste arquivo para instalar o VST3 e AU no seu Mac automaticamente!
+
+--------------------------------------------------------------------------------
+COMO INSTALAR (macOS):
+--------------------------------------------------------------------------------
+Opção Rápida (Recomendada):
+  Dê dois cliques no arquivo "Instalar_Plugins_Mac.command".
+  Ele copiará os arquivos VST3 e AU para as pastas de plugins do sistema.
+
+Instalação Manual:
+  - Copie "Little Things.vst3" para:
+    ~/Library/Audio/Plug-Ins/VST3/
+  - Copie "Little Things.component" para:
+    ~/Library/Audio/Plug-Ins/Components/
+
+Para instalar o script no REAPER:
+  - Execute o arquivo "install_reaper.sh" dentro da pasta "REAPER Script"
+  - Ou carregue o script .lua diretamente pela janela "Action List" do REAPER.
+
+--------------------------------------------------------------------------------
+COMO USAR:
+--------------------------------------------------------------------------------
+1. Conecte seu Novation Launchpad MK3 via USB.
+2. Na sua DAW, adicione o plugin "Little Things" na track de áudio desejada.
+3. Obter o áudio da track:
+   - Em DAWs com ARA (REAPER, Studio One, Logic Pro, Cubase):
+     Clique no botão [CAPTURAR TRACK (ARA 2)] para carregar a timeline instantaneamente.
+   - Em outros hosts (Modo Play-to-Render):
+     Clique em [ARM (PLAY TO RENDER)], dê PLAY na DAW e clique em [FINALIZAR RENDER].
+4. Fatiar e enviar para os pads:
+   - Escolha o modo (Transientes, Grade de Compassos ou Divisão Igualitária).
+   - Clique em [Cortar em 16 Pads] (ou 8, 32, 64).
+5. O Launchpad acende com as cores das fatias e está pronto para tocar!
+================================================================================

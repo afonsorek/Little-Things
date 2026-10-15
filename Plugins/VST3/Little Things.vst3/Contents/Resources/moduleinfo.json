@@ -1,0 +1,76 @@
+{
+  "Name": "Little Things",
+  "Version": "1.1.0",
+  "Factory Info": {
+    "Vendor": "LittleThings",
+    "URL": "",
+    "E-Mail": "",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "ABCDEF019182FAEB4C7454684C744368",
+      "Category": "Audio Module Class",
+      "Name": "Little Things",
+      "Vendor": "LittleThings",
+      "Version": "1.1.0",
+      "SDKVersion": "VST 3.7.12",
+      "Sub Categories": [
+        "Fx",
+        "Sampler",
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+    {
+      "CID": "ABCDEF011234ABCD4C7454684C744368",
+      "Category": "Component Controller Class",
+      "Name": "Little Things",
+      "Vendor": "LittleThings",
+      "Version": "1.1.0",
+      "SDKVersion": "VST 3.7.12",
+      "Sub Categories": [
+        "Fx",
+        "Sampler",
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+    {
+      "CID": "ABCDEF01C0DEF00D4C7454684C744368",
+      "Category": "Plugin Compatibility Class",
+      "Name": "Little Things",
+      "Vendor": "LittleThings",
+      "Version": "1.1.0",
+      "SDKVersion": "VST 3.7.12",
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+    {
+      "CID": "ABCDEF01A1B2C3D44C7454684C744368",
+      "Category": "ARA Main Factory Class",
+      "Name": "Little Things",
+      "Vendor": "LittleThings",
+      "Version": "1.1.0",
+      "SDKVersion": "VST 3.7.12",
+      "Sub Categories": [
+        "Fx",
+        "Sampler",
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}

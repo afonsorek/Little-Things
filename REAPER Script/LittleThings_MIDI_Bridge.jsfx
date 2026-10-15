@@ -1,0 +1,64 @@
+desc:Little Things - Launchpad MIDI Bridge
+// @description MIDI bridge for Launchpad MK3 Programmer Mode
+// @author boku
+// @version 1.0
+// Captures incoming Launchpad MIDI and provides LED output feedback
+// Place this on the same track as RS5K instances
+
+// Sliders for Lua script communication (read by Lua via TrackFX_GetParam)
+slider1:0<0,127,1>Last Note
+slider2:0<0,127,1>Last Velocity
+slider3:0<0,1,1>Note Active
+slider4:0<0,127,1>Last CC Number
+slider5:0<0,127,1>Last CC Value
+
+// Internal state
+@init
+last_note = 0;
+last_vel = 0;
+note_active = 0;
+last_cc = 0;
+last_cc_val = 0;
+
+// Programmer Mode SysEx flag
+programmer_mode_sent = 0;
+
+@block
+// Process incoming MIDI messages
+while (midirecv(offset, msg1, msg2, msg3)) (
+  status = msg1 & 0xF0;
+  
+  // Note On
+  status == 0x90 ? (
+    last_note = msg2;
+    last_vel = msg3;
+    note_active = msg3 > 0 ? 1 : 0;
+    
+    slider1 = msg2;
+    slider2 = msg3;
+    slider3 = msg3 > 0 ? 1 : 0;
+  );
+  
+  // Note Off
+  status == 0x80 ? (
+    last_note = msg2;
+    last_vel = 0;
+    note_active = 0;
+    
+    slider1 = msg2;
+    slider2 = 0;
+    slider3 = 0;
+  );
+  
+  // Control Change (function buttons on MK3 = CC 91-98)
+  status == 0xB0 ? (
+    last_cc = msg2;
+    last_cc_val = msg3;
+    
+    slider4 = msg2;
+    slider5 = msg3;
+  );
+  
+  // Pass through all MIDI to RS5K instances downstream
+  midisend(offset, msg1, msg2, msg3);
+);
