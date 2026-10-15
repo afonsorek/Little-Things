@@ -1,0 +1,76 @@
+name: ReaPack index
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reapack-index
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Validate packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq pandoc cmake pkg-config
+          gem install reapack-index --no-document
+
+      - name: reapack-index --check
+        run: reapack-index --check --ignore Plugins
+
+  index:
+    name: Update index.xml
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq pandoc cmake pkg-config
+          gem install reapack-index --no-document
+
+      - name: Configure git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Generate index
+        run: |
+          OPTS=(--commit --name "Little Things" --ignore Plugins)
+          if [ -f index.xml ]; then
+            # Index only the commits pushed since the last indexed one
+            reapack-index "${OPTS[@]}"
+          else
+            # First run: index only the current state of the script
+            # (older commits carry a legacy @version 1.3 header)
+            reapack-index "${OPTS[@]}" --no-scan --scan "REAPER Script/Little Things - Launchpad Chop Engine.lua"
+          fi
+
+      - name: Push index.xml
+        run: git push origin HEAD:main

@@ -58,6 +58,16 @@ Depois, reinicie sua DAW e faça um novo scan de plugins, se necessário.
 ### Script do REAPER
 Requer a extensão **[ReaImGui](https://github.com/cfillion/reaimgui)** (disponível via ReaPack).
 
+**Via ReaPack (recomendado):**
+1. No REAPER: **Extensions → ReaPack → Import repositories...**
+2. Cole a URL:
+   ```
+   https://github.com/afonsorek/Little-Things/raw/main/index.xml
+   ```
+3. Em **Extensions → ReaPack → Browse packages**, procure por **Little Things** e instale.
+
+**Manual:**
+
 ```bash
 bash "REAPER Script/install_reaper.sh"
 ```

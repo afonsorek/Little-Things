@@ -1,7 +1,6 @@
 desc:Little Things - Launchpad MIDI Bridge
-// @description MIDI bridge for Launchpad MK3 Programmer Mode
-// @author boku
-// @version 1.0
+// @noindex
+// MIDI bridge for Launchpad MK3 Programmer Mode (installed with the Little Things script)
 // Captures incoming Launchpad MIDI and provides LED output feedback
 // Place this on the same track as RS5K instances
 

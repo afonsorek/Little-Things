@@ -1,16 +1,30 @@
--- @description Little Things - Launchpad Chop Engine for REAPER
--- @version 1.3
--- @author boku
+-- @description Little Things - Launchpad Chop Engine
+-- @author AfonsoRek, Erick Martins
+-- @version 1.0alpha1
+-- @changelog Primeira versão alpha
+-- @link https://github.com/afonsorek/Little-Things
+-- @screenshot Docked mode https://imgur.com/a/orR8xp4
+-- @provides
+--   [effect] LittleThings_MIDI_Bridge.jsfx
+--   Presets/*.ltkit
 -- @about
---   Launchpad MK3 Chop Engine - Instant sampling & chopping from timeline to pads.
---   - 100% Solid Opaque ReaImGui UI (no transparency)
---   - [SEND] Send Timeline Range to Selected Pad (bounces MIDI or Audio immediately)
---   - [CHOP] Chop Range into 8/16/32/64 Pads across Launchpad
---   - [STOP] Anti-Loop & Real Release Envelope: Zero unwanted looping, clean 50ms release fade
---   - [KNOB] Gate & One-Shot Modes: Stop immediately on release or play full slice and stop
---   - [AUDIO] Reliable RS5K Playback (Auto-configured All MIDI Inputs + Monitoring)
---   - [SAVE] Save & Load Presets (preserves all audio, slice offsets, release times, colors)
---   - [LED] Real-time Launchpad Mini MK3 Hardware LED Sync
+--   # Little Things — Launchpad Chop Engine
+--
+--   Transforma qualquer trecho da timeline do REAPER em um kit pronto para
+--   tocar no **Novation Launchpad (MK3)**: captura o áudio, fatia e distribui
+--   as fatias nos pads, com as cores acesas no próprio Launchpad.
+--
+--   ## Recursos
+--   - Envia o trecho selecionado da timeline para o pad escolhido
+--   - Fatia em 8, 16, 32 ou 64 pads
+--   - Modos Gate, One-Shot e Loop, com choke groups
+--   - Reprodução via RS5K, configurada automaticamente
+--   - Salvar e carregar kits (`.ltkit`)
+--   - LEDs do Launchpad sincronizados em tempo real
+--
+--   ## Requisitos
+--   - [ReaImGui](https://github.com/cfillion/reaimgui) (via ReaPack)
+--   - Novation Launchpad MK3 (opcional, para tocar no hardware)
 
 --------------------------------------------------------------------------------
 -- CONFIG & CONSTANTS
@@ -1365,19 +1379,31 @@ local function load_kit(path)
   return true
 end
 
+-- Presets bundled next to the script (installed by ReaPack via @provides)
+local function get_bundled_presets_dir()
+  local script_path = select(2, reaper.get_action_context())
+  local script_dir = script_path and script_path:match("^(.*)[/\\]")
+  return script_dir and (script_dir .. "/Presets") or nil
+end
+
 local function list_kits()
-  local dir = get_kits_dir()
   local kits = {}
-  local i = 0
-  repeat
-    local file = reaper.EnumerateFiles(dir, i)
-    if file then
-      if file:match("%.ltkit$") then
-        table.insert(kits, { name = file:gsub("%.ltkit$", ""):gsub("_", " "), path = dir .. "/" .. file, filename = file })
+  local seen = {}
+  local dirs = { get_kits_dir(), get_bundled_presets_dir() }
+  for _, dir in ipairs(dirs) do
+    local i = 0
+    repeat
+      local file = reaper.EnumerateFiles(dir, i)
+      if file then
+        if file:match("%.ltkit$") and not seen[file] then
+          seen[file] = true
+          local name = file:gsub("%.ltkit$", ""):gsub("_", " ")
+          table.insert(kits, { name = name, path = dir .. "/" .. file, filename = file })
+        end
+        i = i + 1
       end
-      i = i + 1
-    end
-  until not file
+    until not file
+  end
   return kits
 end
 
