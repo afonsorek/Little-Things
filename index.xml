@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1" name="Little Things">
+  <category name="REAPER Script">
+    <reapack name="Little Things - Launchpad Chop Engine.lua" type="script" desc="Little Things - Launchpad Chop Engine">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 Little Things \u8212- Launchpad Chop Engine\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Transforma qualquer trecho da timeline do REAPER em um kit pronto para tocar no {\b Novation Launchpad (MK3)}: captura o \u225 ?udio, fatia e distribui as fatias nos pads, com as cores acesas no pr\u243 ?prio Launchpad.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Recursos\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Envia o trecho selecionado da timeline para o pad escolhido\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Fatia em 8, 16, 32 ou 64 pads\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Modos Gate, One-Shot e Loop, com choke groups\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Reprodu\u231 ?\u227 ?o via RS5K, configurada automaticamente\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Salvar e carregar kits ({\f1 .ltkit})\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab LEDs do Launchpad sincronizados em tempo real\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Requisitos\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reaimgui"}}{\fldrslt{\ul
+ReaImGui
+}}}
+ (via ReaPack)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Novation Launchpad MK3 (opcional, para tocar no hardware)\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/afonsorek/Little-Things</link>
+        <link rel="screenshot" href="https://imgur.com/a/orR8xp4">Docked mode</link>
+      </metadata>
+      <version name="1.0alpha1" author="AfonsoRek, Erick Martins" time="2026-10-15T01:04:34Z">
+        <changelog><![CDATA[Primeira versão alpha]]></changelog>
+        <source main="main">https://github.com/afonsorek/Little-Things/raw/055dc9977cdc8b9cb6843f439677578f62f8f2cd/REAPER%20Script/Little%20Things%20-%20Launchpad%20Chop%20Engine.lua</source>
+        <source type="effect" file="LittleThings_MIDI_Bridge.jsfx">https://github.com/afonsorek/Little-Things/raw/055dc9977cdc8b9cb6843f439677578f62f8f2cd/REAPER%20Script/LittleThings_MIDI_Bridge.jsfx</source>
+        <source file="Presets/808_Street_Beats.ltkit">https://github.com/afonsorek/Little-Things/raw/055dc9977cdc8b9cb6843f439677578f62f8f2cd/REAPER%20Script/Presets/808_Street_Beats.ltkit</source>
+      </version>
+    </reapack>
+  </category>
+</index>
