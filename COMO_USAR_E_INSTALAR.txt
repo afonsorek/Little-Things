@@ -15,16 +15,9 @@ Conteúdo deste pacote de distribuição:
    - Presets/                                  -> Presets de kits
    - install_reaper.sh                         -> Instalador automático para o REAPER
 
-3. Instalar_Plugins_Mac.command
-   - Basta dar DOIS CLIQUES neste arquivo para instalar o VST3 e AU no seu Mac automaticamente!
-
 --------------------------------------------------------------------------------
 COMO INSTALAR (macOS):
 --------------------------------------------------------------------------------
-Opção Rápida (Recomendada):
-  Dê dois cliques no arquivo "Instalar_Plugins_Mac.command".
-  Ele copiará os arquivos VST3 e AU para as pastas de plugins do sistema.
-
 Instalação Manual:
   - Copie "Little Things.vst3" para:
     ~/Library/Audio/Plug-Ins/VST3/
