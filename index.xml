@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Little Things">
+<index version="1" name="Little Things" commit="2ae21775ae8209d489f0932f1331a384653c494b">
   <category name="REAPER Script">
     <reapack name="Little Things - Launchpad Chop Engine.lua" type="script" desc="Little Things - Launchpad Chop Engine">
       <metadata>
@@ -7,21 +7,21 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 Little Things \u8212- Launchpad Chop Engine\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Transforma qualquer trecho da timeline do REAPER em um kit pronto para tocar no {\b Novation Launchpad (MK3)}: captura o \u225 ?udio, fatia e distribui as fatias nos pads, com as cores acesas no pr\u243 ?prio Launchpad.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Recursos\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Envia o trecho selecionado da timeline para o pad escolhido\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Fatia em 8, 16, 32 ou 64 pads\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Modos Gate, One-Shot e Loop, com choke groups\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Reprodu\u231 ?\u227 ?o via RS5K, configurada automaticamente\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Salvar e carregar kits ({\f1 .ltkit})\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab LEDs do Launchpad sincronizados em tempo real\sa180\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Requisitos\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 Little Things - Launchpad Chop Engine\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Turn any section of your REAPER timeline into a playable kit on a {\b Novation Launchpad (MK3)}: capture the audio, slice it and spread the slices across the pads, with matching colors lit on the hardware.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Features\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Send the selected timeline range to any pad\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Slice a range into 8, 16, 32 or 64 pads\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Gate, One-Shot and Loop modes, with choke groups\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Playback through auto-configured ReaSamplOmatic5000 instances\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Save and load kits ({\f1 .ltkit})\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Real-time Launchpad LED sync\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Requirements\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reaimgui"}}{\fldrslt{\ul
 ReaImGui
 }}}
- (via ReaPack)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Novation Launchpad MK3 (opcional, para tocar no hardware)\sa180\par}
+ (available via ReaPack)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Novation Launchpad MK3 (optional, to play on hardware)\sa180\par}
 }
 ]]></description>
         <link rel="website">https://github.com/afonsorek/Little-Things</link>
@@ -32,6 +32,17 @@ ReaImGui
         <source main="main">https://github.com/afonsorek/Little-Things/raw/055dc9977cdc8b9cb6843f439677578f62f8f2cd/REAPER%20Script/Little%20Things%20-%20Launchpad%20Chop%20Engine.lua</source>
         <source type="effect" file="LittleThings_MIDI_Bridge.jsfx">https://github.com/afonsorek/Little-Things/raw/055dc9977cdc8b9cb6843f439677578f62f8f2cd/REAPER%20Script/LittleThings_MIDI_Bridge.jsfx</source>
         <source file="Presets/808_Street_Beats.ltkit">https://github.com/afonsorek/Little-Things/raw/055dc9977cdc8b9cb6843f439677578f62f8f2cd/REAPER%20Script/Presets/808_Street_Beats.ltkit</source>
+      </version>
+      <version name="1.3" author="boku" time="2026-10-15T00:39:39Z">
+        <source main="main">https://github.com/afonsorek/Little-Things/raw/4f56dd3a2f13403dc1536b699c5d0b16a00a046b/REAPER%20Script/Little%20Things%20-%20Launchpad%20Chop%20Engine.lua</source>
+      </version>
+      <version name="1.0alpha2" author="AfonsoRek, Erick Martins" time="2026-10-15T01:12:28Z">
+        <changelog><![CDATA[- Companion files moved into the "Little Things" subfolder
+- Bundled kit presets listed alongside user kits
+- English UI labels]]></changelog>
+        <source main="main">https://github.com/afonsorek/Little-Things/raw/2ae21775ae8209d489f0932f1331a384653c494b/REAPER%20Script/Little%20Things%20-%20Launchpad%20Chop%20Engine.lua</source>
+        <source type="effect" file="Little Things/LittleThings_MIDI_Bridge.jsfx">https://github.com/afonsorek/Little-Things/raw/2ae21775ae8209d489f0932f1331a384653c494b/REAPER%20Script/Little%20Things/LittleThings_MIDI_Bridge.jsfx</source>
+        <source file="Little Things/Presets/808_Street_Beats.ltkit">https://github.com/afonsorek/Little-Things/raw/2ae21775ae8209d489f0932f1331a384653c494b/REAPER%20Script/Little%20Things/Presets/808_Street_Beats.ltkit</source>
       </version>
     </reapack>
   </category>
