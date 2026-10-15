@@ -1,30 +1,33 @@
 -- @description Little Things - Launchpad Chop Engine
 -- @author AfonsoRek, Erick Martins
--- @version 1.0alpha1
--- @changelog Primeira versão alpha
+-- @version 1.0alpha2
+-- @changelog
+--   - Companion files moved into the "Little Things" subfolder
+--   - Bundled kit presets listed alongside user kits
+--   - English UI labels
 -- @link https://github.com/afonsorek/Little-Things
 -- @screenshot Docked mode https://imgur.com/a/orR8xp4
 -- @provides
---   [effect] LittleThings_MIDI_Bridge.jsfx
---   Presets/*.ltkit
+--   [effect] Little Things/LittleThings_MIDI_Bridge.jsfx
+--   Little Things/Presets/*.ltkit
 -- @about
---   # Little Things — Launchpad Chop Engine
+--   # Little Things - Launchpad Chop Engine
 --
---   Transforma qualquer trecho da timeline do REAPER em um kit pronto para
---   tocar no **Novation Launchpad (MK3)**: captura o áudio, fatia e distribui
---   as fatias nos pads, com as cores acesas no próprio Launchpad.
+--   Turn any section of your REAPER timeline into a playable kit on a
+--   **Novation Launchpad (MK3)**: capture the audio, slice it and spread the
+--   slices across the pads, with matching colors lit on the hardware.
 --
---   ## Recursos
---   - Envia o trecho selecionado da timeline para o pad escolhido
---   - Fatia em 8, 16, 32 ou 64 pads
---   - Modos Gate, One-Shot e Loop, com choke groups
---   - Reprodução via RS5K, configurada automaticamente
---   - Salvar e carregar kits (`.ltkit`)
---   - LEDs do Launchpad sincronizados em tempo real
+--   ## Features
+--   - Send the selected timeline range to any pad
+--   - Slice a range into 8, 16, 32 or 64 pads
+--   - Gate, One-Shot and Loop modes, with choke groups
+--   - Playback through auto-configured ReaSamplOmatic5000 instances
+--   - Save and load kits (`.ltkit`)
+--   - Real-time Launchpad LED sync
 --
---   ## Requisitos
---   - [ReaImGui](https://github.com/cfillion/reaimgui) (via ReaPack)
---   - Novation Launchpad MK3 (opcional, para tocar no hardware)
+--   ## Requirements
+--   - [ReaImGui](https://github.com/cfillion/reaimgui) (available via ReaPack)
+--   - Novation Launchpad MK3 (optional, to play on hardware)
 
 --------------------------------------------------------------------------------
 -- CONFIG & CONSTANTS
@@ -690,11 +693,8 @@ local function choke_group_cut(triggering_pad_idx)
   local grp = trig_pad.choke_group
   for i = 1, NUM_PADS do
     if i ~= triggering_pad_idx and pads[i].choke_group == grp then
-      -- 1. Send Note-Off to virtual MIDI bus and hardware
+      -- 1. Send Note-Off to the virtual MIDI keyboard bus
       reaper.StuffMIDIMessage(0, 0x80, pads[i].midi_note, 0)
-      if midi_out_open and midi_out_device >= 0 then
-        reaper.StuffMIDIMessage(midi_out_device, 0x80, pads[i].midi_note, 0)
-      end
       
       -- 2. Flush voice in RS5K immediately (works even in One-Shot mode where RS5K ignores note-offs)
       local fx_i = get_pad_fx_idx(i)
@@ -1075,7 +1075,7 @@ local function capture_timeline_range_audio()
       reaper.DeleteTrack(stem_track)
     end
     
-    -- Feature: Apagar / Mutar o som da track de origem
+    -- Mute the source track so it doesn't double the chops
     if auto_mute_source_track then
       reaper.SetMediaTrackInfo_Value(track, "B_MUTE", 1)
     else
@@ -1379,11 +1379,11 @@ local function load_kit(path)
   return true
 end
 
--- Presets bundled next to the script (installed by ReaPack via @provides)
+-- Presets bundled with the script (installed by ReaPack via @provides)
 local function get_bundled_presets_dir()
   local script_path = select(2, reaper.get_action_context())
   local script_dir = script_path and script_path:match("^(.*)[/\\]")
-  return script_dir and (script_dir .. "/Presets") or nil
+  return script_dir and (script_dir .. "/Little Things/Presets") or nil
 end
 
 local function list_kits()
@@ -2026,10 +2026,10 @@ local function draw_chop_bar()
     
     reaper.ImGui_SameLine(ctx, 0, 10)
     
-    -- Feature: APAGAR SOM DA TRACK (Silence/Cut Range from Track)
+    -- Feature: Cut the selected range out of the source track
     reaper.ImGui_PushStyleColor(ctx, reaper.ImGui_Col_Button(), 0x501010FF)
     reaper.ImGui_PushStyleColor(ctx, reaper.ImGui_Col_ButtonHovered(), 0x8B2020FF)
-    if reaper.ImGui_Button(ctx, "[APAGAR SOM DA TRACK]##cutaudio", 180, 22) then
+    if reaper.ImGui_Button(ctx, "[CUT RANGE FROM TRACK]##cutaudio", 180, 22) then
       silence_selected_range_on_source_track()
     end
     if reaper.ImGui_IsItemHovered(ctx) then

@@ -34,14 +34,14 @@ echo "   → Scripts/Little Things - Launchpad Chop Engine.lua"
 
 # Install JSFX
 echo "📦 Installing JSFX MIDI Bridge..."
-cp "$SCRIPT_DIR/LittleThings_MIDI_Bridge.jsfx" "$REAPER_PATH/Effects/"
+cp "$SCRIPT_DIR/Little Things/LittleThings_MIDI_Bridge.jsfx" "$REAPER_PATH/Effects/"
 echo "   → Effects/LittleThings_MIDI_Bridge.jsfx"
 
 # Install presets
 echo "📦 Installing kit presets..."
 mkdir -p "$REAPER_PATH/Scripts/LittleThings_Kits"
-if [ -d "$SCRIPT_DIR/Presets" ]; then
-    cp "$SCRIPT_DIR/Presets/"*.ltkit "$REAPER_PATH/Scripts/LittleThings_Kits/" 2>/dev/null || true
+if [ -d "$SCRIPT_DIR/Little Things/Presets" ]; then
+    cp "$SCRIPT_DIR/Little Things/Presets/"*.ltkit "$REAPER_PATH/Scripts/LittleThings_Kits/" 2>/dev/null || true
     echo "   → Scripts/LittleThings_Kits/*.ltkit"
 fi
 

@@ -11,8 +11,8 @@ Conteúdo deste pacote de distribuição:
 
 2. REAPER Script/
    - Little Things - Launchpad Chop Engine.lua -> Script nativo para REAPER (ReaImGui)
-   - LittleThings_MIDI_Bridge.jsfx             -> Bridge MIDI JSFX
-   - Presets/                                  -> Presets de kits
+   - Little Things/LittleThings_MIDI_Bridge.jsfx -> Bridge MIDI JSFX
+   - Little Things/Presets/                    -> Presets de kits
    - install_reaper.sh                         -> Instalador automático para o REAPER
 
 --------------------------------------------------------------------------------

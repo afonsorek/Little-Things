@@ -26,8 +26,9 @@ Plugins/
 └── Standalone/Little Things.app     # Aplicativo independente
 REAPER Script/
 ├── Little Things - Launchpad Chop Engine.lua   # Script ReaImGui
-├── LittleThings_MIDI_Bridge.jsfx               # Bridge MIDI
-├── Presets/                                    # Kits de exemplo
+├── Little Things/
+│   ├── LittleThings_MIDI_Bridge.jsfx           # Bridge MIDI
+│   └── Presets/                                # Kits de exemplo
 └── install_reaper.sh                           # Instalador para o REAPER
 ```
 
