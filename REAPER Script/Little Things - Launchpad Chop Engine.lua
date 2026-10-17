@@ -3798,7 +3798,7 @@ local function draw_chop_bar()
     tooltip("Every audio item of the source track, in timeline order, into pads from the selected one")
 
     reaper.ImGui_SameLine(ctx, 0, 12)
-    if colored_button("Delete track sound, 0x501010FF, 160, 28) then
+    if colored_button("Delete track sound", 0x501010FF, 160, 28) then
       silence_selected_range_on_source_track()
     end
     tooltip("Splits and deletes the audio of the selected range on the source track")
