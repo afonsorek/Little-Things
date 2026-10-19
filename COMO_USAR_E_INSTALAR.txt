@@ -1,45 +1,57 @@
 ================================================================================
-              LITTLE THINGS - LAUNCHPAD CHOP ENGINE & ARA PLUGIN
+                    LITTLE THINGS - LAUNCHPAD CHOP ENGINE
 ================================================================================
 
-Conteúdo deste pacote de distribuição:
+Little Things transforma qualquer trecho de audio em um kit pronto para tocar
+no Novation Launchpad. O script captura o audio da sua track, divide em fatias
+e distribui cada uma em um pad, com as cores acesas no proprio Launchpad.
 
-1. Plugins/
-   - VST3/Little Things.vst3         -> Plugin VST3 com ARA 2 para macOS
-   - AU/Little Things.component       -> Plugin Audio Unit (Logic Pro / DAWs)
-   - Standalone/Little Things.app     -> Aplicativo independente (sem DAW)
-
-2. REAPER Script/
-   - Little Things - Launchpad Chop Engine.lua -> Script nativo para REAPER (ReaImGui)
-   - Little Things/LittleThings_MIDI_Bridge.jsfx -> Bridge MIDI JSFX
-   - Little Things/Presets/                    -> Presets de kits
-   - install_reaper.sh                         -> Instalador automático para o REAPER
 
 --------------------------------------------------------------------------------
-COMO INSTALAR (macOS):
+CONTEUDO DO PACOTE
 --------------------------------------------------------------------------------
-Instalação Manual:
-  - Copie "Little Things.vst3" para:
-    ~/Library/Audio/Plug-Ins/VST3/
-  - Copie "Little Things.component" para:
-    ~/Library/Audio/Plug-Ins/Components/
 
-Para instalar o script no REAPER:
-  - Execute o arquivo "install_reaper.sh" dentro da pasta "REAPER Script"
-  - Ou carregue o script .lua diretamente pela janela "Action List" do REAPER.
+REAPER Script/
+  - Little Things - Launchpad Chop Engine.lua   Script principal (ReaImGui)
+  - Little Things/LittleThings_MIDI_Bridge.jsfx Ponte MIDI com o Launchpad
+  - Little Things/Presets/                      Kits de exemplo (.ltkit)
+
 
 --------------------------------------------------------------------------------
-COMO USAR:
+REQUISITOS
 --------------------------------------------------------------------------------
-1. Conecte seu Novation Launchpad MK3 via USB.
-2. Na sua DAW, adicione o plugin "Little Things" na track de áudio desejada.
-3. Obter o áudio da track:
-   - Em DAWs com ARA (REAPER, Studio One, Logic Pro, Cubase):
-     Clique no botão [CAPTURAR TRACK (ARA 2)] para carregar a timeline instantaneamente.
-   - Em outros hosts (Modo Play-to-Render):
-     Clique em [ARM (PLAY TO RENDER)], dê PLAY na DAW e clique em [FINALIZAR RENDER].
-4. Fatiar e enviar para os pads:
-   - Escolha o modo (Transientes, Grade de Compassos ou Divisão Igualitária).
-   - Clique em [Cortar em 16 Pads] (ou 8, 32, 64).
-5. O Launchpad acende com as cores das fatias e está pronto para tocar!
+
+  - REAPER 7 ou superior
+  - Extensao ReaImGui (instale pelo ReaPack: Extensions > ReaPack)
+  - Novation Launchpad MK3
+
+
+--------------------------------------------------------------------------------
+COMO INSTALAR
+--------------------------------------------------------------------------------
+
+  1. Copie a pasta "REAPER Script" para a pasta de scripts do REAPER.
+     (No REAPER: Options > Show REAPER resource path, depois abra "Scripts".)
+  2. No REAPER, abra Actions > Show action list.
+  3. Clique em New action > Load ReaScript e selecione o arquivo
+     "Little Things - Launchpad Chop Engine.lua".
+
+
+--------------------------------------------------------------------------------
+COMO USAR
+--------------------------------------------------------------------------------
+
+  1. Conecte o Launchpad via USB.
+  2. Em Options > Preferences > Audio > MIDI Devices, ative o Launchpad como
+     entrada (input) e como saida (output).
+  3. Rode o script Little Things pela Action List.
+  4. Nas configuracoes do script, selecione o MIDI In e o MIDI Out do Launchpad.
+  5. Selecione o trecho de audio e escolha o modo de corte:
+       - Transientes
+       - Grade de Compassos
+       - Divisao Igualitaria
+  6. Clique em [Cortar em 16 Pads] (ou 8, 32, 64).
+
+  Pronto: o Launchpad acende com as cores das fatias e ja da para tocar.
+
 ================================================================================
