@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Little Things" commit="2ae21775ae8209d489f0932f1331a384653c494b">
+<index version="1" name="Little Things" commit="6404d67167e098bb9dabcff39ee40484c1d8cbd0">
   <category name="REAPER Script">
-    <reapack name="Little Things - Launchpad Chop Engine.lua" type="script" desc="Little Things - Launchpad Chop Engine">
+    <reapack name="Little Things - Launchpad Chop Engine.lua" type="script" desc="Little Things - Launchpad Chop Engine for REAPER">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 Little Things - Launchpad Chop Engine\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Turn any section of your REAPER timeline into a playable kit on a {\b Novation Launchpad (MK3)}: capture the audio, slice it and spread the slices across the pads, with matching colors lit on the hardware.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Features\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Send the selected timeline range to any pad\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Slice a range into 8, 16, 32 or 64 pads\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Gate, One-Shot and Loop modes, with choke groups\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Playback through auto-configured ReaSamplOmatic5000 instances\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Save and load kits ({\f1 .ltkit})\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Real-time Launchpad LED sync\sa180\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Requirements\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reaimgui"}}{\fldrslt{\ul
-ReaImGui
-}}}
- (available via ReaPack)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Novation Launchpad MK3 (optional, to play on hardware)\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Launchpad MK3 Chop Engine - Instant sampling & chopping from timeline to pads.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab [SEND] Send timeline range to the selected pad (time selection is cleared afterwards)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab [CHOP] Chop a range into 8/16/32/64 pads (spills over to the next pages)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab [ITEMS] Load every audio item of the source track into consecutive pads\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Pages: Launchpad arrows (or the scene buttons) switch page, up to 8 pages\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Gate / One-Shot / Loop (Hold or Toggle)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Multi-select (Shift = range, Ctrl/Cmd = one by one) and drag to move pads\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Kits: save / export / import with the chopped audio included (portable)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Runs in background when the window is closed. Delete the "LT Chops" track to stop it.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 v2.2: animation per pad (type, color incl. rainbow, speed, preview) in the pad menu; special pads: Metronome (blinks on the DAW beat, press = metronome on/off) and Stop sound. v2.1: Launchpad animations (Flash / Ripple / Cross / Sparkle), 8 pages always available, LED watchdog + single LED path (pads losing their color), 14 px drag threshold, Backspace no longer deletes pads. v2.0.2: only one engine can drive the Launchpad (a newer one retires the older); own window id so an old v1.x window can no longer hide behind it; LED resync after kit load. v2.0.1: the shortcut / action reopens the window (relaunch was being ignored). v2.0: pages, router JSFX (auto-installed), loop toggle, multi-select, drag-move, portable kits, background engine, settings panel, collapsible inspector, color picker, credits. v1.6: choke cuts fade out (release) instead of hard-cutting. v1.5: micro-fade (attack/release) on every pad.\par}
 }
 ]]></description>
-        <link rel="website">https://github.com/afonsorek/Little-Things</link>
-        <link rel="screenshot" href="https://imgur.com/a/orR8xp4">Docked mode</link>
       </metadata>
       <version name="1.0alpha1" author="AfonsoRek, Erick Martins" time="2026-10-15T01:04:34Z">
         <changelog><![CDATA[Primeira versão alpha]]></changelog>
@@ -43,6 +36,9 @@ ReaImGui
         <source main="main">https://github.com/afonsorek/Little-Things/raw/2ae21775ae8209d489f0932f1331a384653c494b/REAPER%20Script/Little%20Things%20-%20Launchpad%20Chop%20Engine.lua</source>
         <source type="effect" file="Little Things/LittleThings_MIDI_Bridge.jsfx">https://github.com/afonsorek/Little-Things/raw/2ae21775ae8209d489f0932f1331a384653c494b/REAPER%20Script/Little%20Things/LittleThings_MIDI_Bridge.jsfx</source>
         <source file="Little Things/Presets/808_Street_Beats.ltkit">https://github.com/afonsorek/Little-Things/raw/2ae21775ae8209d489f0932f1331a384653c494b/REAPER%20Script/Little%20Things/Presets/808_Street_Beats.ltkit</source>
+      </version>
+      <version name="2.2" author="Little Things (Afonso Rekbaim, Erick Martins)" time="2026-10-16T17:46:27Z">
+        <source main="main">https://github.com/afonsorek/Little-Things/raw/dde6200008d93a6faf8168f1b10f81fee949f1e7/REAPER%20Script/Little%20Things%20-%20Launchpad%20Chop%20Engine.lua</source>
       </version>
     </reapack>
   </category>
